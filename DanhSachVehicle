@@ -1,0 +1,37 @@
+package bai_1a;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class DanhSachVehicle {
+	private ArrayList<Vehicle>list;
+	private Scanner sc;
+	Vehicle v;
+	
+	public DanhSachVehicle(ArrayList<Vehicle>list) {
+		this.list=list;
+	}
+	
+	public DanhSachVehicle() {
+		this.list=new ArrayList<Vehicle>();
+		sc=new Scanner(System.in);
+	}
+	
+	public void nhap(Vehicle v) {
+		this.list.add(v);
+	}
+	
+	public void xuat() {
+		if(this.list.size()==0) {
+			System.out.println("Đang rỗng !");
+			return;
+		}
+
+		System.out.println(String.format("%-20s%-20s%-20s%-20s%-20s ", "Tên chủ xe","Loại xe","Dung tích","Trị giá","Thuế phải nộp")
+);
+		System.out.println("======================================================================================================");
+		for (Vehicle v : list) {
+			System.out.println(v);
+		}
+	}
+}
