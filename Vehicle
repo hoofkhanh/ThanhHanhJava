@@ -1,0 +1,95 @@
+package bai_1a;
+
+import java.util.Scanner;
+
+public class Vehicle {
+	private String tenChuXe;
+	private String LoaiXe;
+	private int dungTich;
+	private double triGia;
+	private double thuePhaiNop;
+
+	public Vehicle(String tenChuXe, String loaiXe, int dungTich, double triGia, double thuePhaiNop) {
+		this.tenChuXe = tenChuXe;
+		LoaiXe = loaiXe;
+		this.dungTich = dungTich;
+		this.triGia = triGia;
+		this.thuePhaiNop = thuePhaiNop;
+	}
+
+	public Vehicle() {
+	}
+
+	public String getTenChuXe() {
+		return tenChuXe;
+	}
+
+	public void setTenChuXe(String tenChuXe) {
+		this.tenChuXe = tenChuXe;
+	}
+
+	public String getLoaiXe() {
+		return LoaiXe;
+	}
+
+	public void setLoaiXe(String loaiXe) {
+		LoaiXe = loaiXe;
+	}
+
+	public int getDungTich() {
+		return dungTich;
+	}
+
+	public void setDungTich(int dungTich) {
+		this.dungTich = dungTich;
+	}
+
+	public double getTriGia() {
+		return triGia;
+	}
+
+	public void setTriGia(double triGia) {
+		this.triGia = triGia;
+	}
+
+	public double getThuePhaiNop() {
+		return thuePhaiNop;
+	}
+
+	public void setThuePhaiNop(double thuePhaiNop) {
+		this.thuePhaiNop = thuePhaiNop;
+	}
+
+	@Override
+	public String toString() {
+		return (String.format("%-20s%-20s%-20d%-20.2f%-20.2f",this.getTenChuXe(),this.getLoaiXe(),this.getDungTich(),this.getTriGia(),this.getThuePhaiNop()));
+	}
+
+	public double thuePhaiNop() {
+		if (this.dungTich < 100) {
+			return this.triGia * 0.01;
+		} else if (this.dungTich >= 100 && this.dungTich <= 200) {
+			return this.triGia * 0.03;
+		} else {
+			return this.triGia * 0.05;
+		}
+	}
+
+	public void nhap() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Nhập tên chủ xe");
+		this.tenChuXe = sc.nextLine();
+		System.out.println("Nhập loại xe");
+		this.LoaiXe = sc.nextLine();
+		do {
+			System.out.println("nhập dung tích >0");
+			this.dungTich = sc.nextInt();
+		} while (this.dungTich <= 0);
+
+		do {
+			System.out.println("Nhập trị giá >0");
+			this.triGia = sc.nextDouble();
+		} while (this.triGia <= 0);
+		this.thuePhaiNop = thuePhaiNop();
+	}
+}
