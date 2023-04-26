@@ -1,0 +1,32 @@
+package bai_1a;
+
+import java.util.Scanner;
+
+public class Menu {
+	private DanhSachVehicle list=new DanhSachVehicle();
+	private Vehicle v;
+	
+	public void MenuChon() {
+		Scanner sc=new Scanner(System.in);
+		int chon=3;
+		do {
+			System.out.println("1.Nhập thông tin xe");
+			System.out.println("2.Xuất bảng kê khai tiền thuế trước bạ của xe");
+			System.out.println("3.Thoát");
+			chon=sc.nextInt();
+			
+			if(chon==1) {
+				v=new Vehicle();
+				v.nhap();
+				this.list.nhap(v);
+			}else if(chon==2) {
+				this.list.xuat();
+			}else if(chon==3) {
+				System.out.println("Bạn đã thoát");
+			}else {
+				System.out.println("Vui lòng chọn đúng menu !");
+			}
+			
+		}while(chon!=3);
+	}
+}
