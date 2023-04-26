@@ -1,0 +1,9 @@
+package bai_1a;
+
+public class Test {
+	public static void main(String[] args) {
+		Menu menu=new Menu();
+		menu.MenuChon();
+	}
+	
+}
